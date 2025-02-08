@@ -5,7 +5,7 @@ QueryGenius est une application interactive conçue pour simplifier le nettoyage
 
 ## 🚀 Visiter l'application:
 
-Tu peux visiter l'application déployée en cliquant sur le lien ci-dessous :
+Vous pouvez visiter l'application déployée en cliquant sur le lien ci-dessous :
 
 [Accéder à l'application déployée](https://data-visualisation-llm.streamlit.app/)
 
