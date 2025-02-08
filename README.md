@@ -26,7 +26,7 @@ Vous pouvez visiter l'application déployée en cliquant sur le lien ci-dessous 
   - Suppression des lignes contenant des valeurs aberrantes
 
 ### 3️⃣ **Génération Automatique de Visualisations**
-- **Interaction avec un chatbot LLM** (Claude) pour comprendre la requête utilisateur et proposer une visualisation adaptée.
+- **Interaction avec un chatbot LLM** (Claude ou Gemini) pour comprendre la requête utilisateur et proposer une visualisation adaptée.
 - **Sélection intelligente du type de graphique** basé sur les données fournies et la requête.
 - **Génération de code Python avec Plotly** pour afficher la visualisation directement dans Streamlit.
 
