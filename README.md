@@ -35,6 +35,38 @@ QueryGenius est une application interactive conçue pour simplifier le nettoyage
 - **Plotly** : Graphiques interactifs générés automatiquement.
 - **Anthropic Claude API** : Intégration du chatbot d'intelligence artificielle.
 
+## 📂 Structure du Projet
+
+📂 DataViz-LLM
+│── 📂 .devcontainer          # Configuration pour l'environnement de développement
+│   │── 📄 devcontainer.json  # Fichier de configuration pour VS Code
+│── 📂 dist                   # Fichiers de distribution (wheel & archive)
+│   │── 📄 dataviz_project-0.1.0-py3-none-any.whl
+│   │── 📄 dataviz_project-0.1.0.tar.gz
+│── 📂 docs                   # Documentation du projet
+│   │── 📂 build              # Fichiers générés pour la documentation HTML
+│   │── 📂 source             # Sources de la documentation (RST, conf.py)
+│   │── 📄 Makefile           # Fichier pour générer la documentation
+│   │── 📄 make.bat           # Script Windows pour générer la doc
+│── 📂 src/dataviz_project    # Code source principal
+│   │── 📂 __pycache__        # Cache Python (non suivi par Git)
+│   │── 📄 app.py             # Fichier principal Streamlit
+│   │── 📄 data_transformation.py   # Méthodes de transformation des données
+│   │── 📄 data_transformation_page.py  # Page dédiée aux transformations
+│   │── 📄 utils.py           # Fonctions utilitaires
+│   │── 📄 Claude_chat_responses.py  # Gestion des réponses du chatbot Claude
+│   │── 📄 Gemini_chat_responses.py  # Gestion des réponses du chatbot Gemini
+│   │── 📄 __init__.py        # Initialisation du module Python
+│── 📂 tests                  # Tests unitaires et d'intégration
+│   │── 📄 __init__.py        # Initialisation des tests
+│   │── 📄 conftest.py        # Configuration des tests avec pytest
+│   │── 📄 test_handle_duplicates.py  # Test gestion des doublons
+│   │── 📄 test_handle_missing_values.py  # Test gestion des valeurs manquantes
+│   │── 📄 test_handle_outliers.py  # Test gestion des valeurs aberrantes
+│── 📄 README.md               # Documentation principale du projet
+│── 📄 poetry.lock             # Fichier des dépendances géré par Poetry
+│── 📄 pyproject.toml          # Configuration du projet et des dépendances
+
 ## 🏁 Comment Utiliser QueryGenius ?
 ### 🔹 1.Clone repository
 ```bash
