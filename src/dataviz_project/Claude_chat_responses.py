@@ -3,6 +3,7 @@ import pandas as pd
 import anthropic  
 import matplotlib.pyplot as plt
 import re
+
 from dataviz_project.data_transformation import (
     summarize_data,
     handle_duplicates, 
@@ -12,7 +13,6 @@ from dataviz_project.data_transformation import (
 from utils import load_dataset
 
 
-# Load environment variables (API key)
 
 
 # Helper function to interact with Claude API
@@ -77,7 +77,7 @@ def generate_visualization_code(data: pd.DataFrame, visualization_types: str, us
     Based on the dataset and user request, generate Correct Python code for the following visualizations using matplotlib, seaborn, or plotly:
     - {visualization_types}
 
-    Dataset Columns and Types:
+    Dataset Columns and Typesuse only this columns:
     {dataset_info}
 
     User Request:
@@ -124,8 +124,8 @@ def chatbot_interface_claude(api_key):
     if "transformed_df" in st.session_state and st.session_state.transformed_df is not None:
         df = st.session_state.transformed_df.copy()
         st.write("📂 **Current Dataset transformed:**")
-        st.write("### 🔍 Preview of First Rows")
-        st.dataframe(df.head())
+        #st.write("### 🔍 Preview of First Rows")
+        #st.dataframe(df.head())
     
     
     if uploaded_file:
@@ -148,10 +148,7 @@ def chatbot_interface_claude(api_key):
     for message in st.session_state.messages:
         st.chat_message(message["role"]).write(message["content"])
 
-    # Show all previous visualizations if any
-    if "visualizations" in st.session_state:
-        for viz in st.session_state.visualizations:
-            st.pyplot(viz)
+            
 
     user_input = st.chat_input("Ask your question here...")
     
@@ -168,27 +165,27 @@ def chatbot_interface_claude(api_key):
 
                 response = f"**🔍 Query Analysis:** {query_analysis}\n\n" \
                            f"**📊 Selected Visualization:** {best_viz}\n\n" \
+                           f"**📊 Explanation:** {explanation}\n\n" \
                            f"**🖥 Generated Python Code:**\npython\n{code}\n"
+                           
                 
                 st.session_state.messages.append({"role": "assistant", "content": response})
                 st.chat_message("assistant").write(response)
 
                 try:
-                    match = re.search(r"python\n(.*?)\n", code, re.DOTALL)
-                    python_code = match.group(1) if match else code
-                    python_code = python_code.replace("plt.show()", "st.pyplot(plt)")
-
-                    # Store visualization
-                    fig, ax = plt.subplots(figsize=(8, 4))
-                    exec(python_code, globals())
-                    st.session_state.visualizations.append(fig)
-                    
-                    # Display the visualization
-                    st.pyplot(fig)
+                        # Extraire le code Python du texte renvoyé
+                        match = re.search(r"```python\n(.*?)\n```", code, re.DOTALL)
+                        python_code = match.group(1) if match else code
+                        # Remplacer plt.show() par st.pyplot(plt.gcf()) pour afficher les graphiques sur Streamlit
+                        python_code = python_code.replace("plt.show()", "st.pyplot(plt.gcf())")
+                        # Exécuter le code en utilisant un dictionnaire local sécurisé
+                        fig, ax = plt.subplots(figsize=(8, 4))
+                        exec(python_code, globals(), {"df": df})
+                        st.pyplot(fig)
                 except Exception as e:
-                    error_msg = f"⚠️ Error executing visualization: {e}"
-                    st.session_state.messages.append({"role": "assistant", "content": error_msg})
-                    st.chat_message("assistant").write(error_msg)
+                        error_msg = f"⚠️ Erreur lors de l'exécution de la visualisation : {e}"
+                        st.session_state.messages.append({"role": "assistant", "content": error_msg})
+                        st.chat_message("assistant").write(error_msg)
         else:
             st.info("🔹 Please enter your API key and upload a dataset to get started!")
 # Run the app
