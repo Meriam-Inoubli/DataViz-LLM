@@ -3,6 +3,12 @@
 ## 🚀 Présentation du Projet
 QueryGenius est une application interactive conçue pour simplifier le nettoyage, la transformation et la visualisation des données grâce à un chatbot alimenté par un **Large Language Model (LLM)**. L'objectif est de permettre aux utilisateurs de charger un dataset brut, de l'améliorer avec des transformations adaptées, puis d'utiliser le chatbot pour générer des visualisations adaptées aux besoins de l'analyse.
 
+## 🚀 Visiter l'application:
+
+Tu peux visiter l'application déployée en cliquant sur le lien ci-dessous :
+
+[Accéder à l'application déployée](https://data-visualisation-llm.streamlit.app/)
+
 ## 🏗️ Fonctionnalités Principales
 ### 1️⃣ **Chargement et Détection Automatique du Format des Données**
 - Prise en charge des fichiers **CSV, Excel, JSON et PDF**.
