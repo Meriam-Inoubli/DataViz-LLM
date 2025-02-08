@@ -36,7 +36,7 @@ QueryGenius est une application interactive conçue pour simplifier le nettoyage
 - **Anthropic Claude API** : Intégration du chatbot d'intelligence artificielle.
 
 ## 📂 Structure du Projet
-
+```
 📂 DataViz-LLM
 │── 📂 .devcontainer          # Configuration pour l'environnement de développement
 │   │── 📄 devcontainer.json  # Fichier de configuration pour VS Code
@@ -66,7 +66,7 @@ QueryGenius est une application interactive conçue pour simplifier le nettoyage
 │── 📄 README.md               # Documentation principale du projet
 │── 📄 poetry.lock             # Fichier des dépendances géré par Poetry
 │── 📄 pyproject.toml          # Configuration du projet et des dépendances
-
+```
 ## 🏁 Comment Utiliser QueryGenius ?
 ### 🔹 1.Clone repository
 ```bash
