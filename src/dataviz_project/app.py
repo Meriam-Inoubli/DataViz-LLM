@@ -27,8 +27,7 @@ if "transformed_df" not in st.session_state:
     st.session_state.transformed_df = None
 if "messages" not in st.session_state:
     st.session_state.messages = []
-if "visualizations" not in st.session_state:
-    st.session_state.visualizations = []
+
 
 # Barre latérale pour la navigation
 with st.sidebar:
