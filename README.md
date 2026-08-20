@@ -103,7 +103,6 @@ streamlit run src\dataviz_project\app.py
 
 ## 💡 Auteurs & Encadrement
 Projet réalisé par :
-- **Kabeda Hiba** - hiba.kabeda@dauphine.eu
 - **Inoubli Meriam** - meriam.inoubli@dauphine.eu
 
 Encadré par :
